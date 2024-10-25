@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Your Meal</title>
+    <style>
+        body {
+            background-image: url('your-image-url.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .choice-box {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .choice-box:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: black;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Order Your Meal</h1>
+    <div class="choice-box" onclick="placeOrder('Veggie Burger')">Veggie Burger</div>
+    <div class="choice-box" onclick="placeOrder('Filet-O-Fish')">Filet-O-Fish</div>
+
+    <div id="message"></div>
+
+    <script>
+        function placeOrder(meal) {
+            const message = document.getElementById('message');
+            message.innerText = `Your order of ${meal} is on the way!`;
+            message.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
