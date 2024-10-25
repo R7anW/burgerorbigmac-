@@ -6,7 +6,7 @@
     <title>Order Your Meal</title>
     <style>
         body {
-            background: linear-gradient(to bottom, red, yellow); /* Gradient from red to yellow */
+            background: linear-gradient(to bottom, red, yellow);
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
@@ -49,6 +49,12 @@
             font-size: 3em; /* Large message size */
             text-align: center;
         }
+
+        #timer {
+            display: none; /* Initially hidden */
+            font-size: 2em; /* Timer size */
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -60,14 +66,42 @@
     </div>
 
     <div id="message"></div>
+    <div id="timer"></div>
 
     <script>
+        let countdown;
+
+        function startTimer(duration) {
+            let timerDisplay = document.getElementById('timer');
+            let timeRemaining = duration;
+
+            countdown = setInterval(() => {
+                let minutes = Math.floor(timeRemaining / 60);
+                let seconds = timeRemaining % 60;
+
+                // Format time as MM:SS
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(countdown);
+                    timerDisplay.innerText = "Time's up!";
+                } else {
+                    timeRemaining--;
+                }
+            }, 1000);
+        }
+
         function placeOrder(meal) {
             const choices = document.getElementById('choices');
             const message = document.getElementById('message');
+            const timerDisplay = document.getElementById('timer');
+
             choices.style.display = 'none'; // Hide choice boxes
             message.innerText = `Your order of ${meal} is on the way!`;
             message.style.display = 'block'; // Show message
+            timerDisplay.style.display = 'block'; // Show timer
+            
+            startTimer(28 * 60); // Start timer for 28 minutes (in seconds)
         }
     </script>
 
