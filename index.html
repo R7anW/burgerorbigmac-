@@ -6,12 +6,14 @@
     <title>Order Your Meal</title>
     <style>
         body {
-            background-image: url('your-image-url.jpg'); /* Replace with your image URL */
+            background-color: red;
             background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
             padding: 50px;
+            height: 100vh; /* Full height */
+            overflow: hidden; /* Prevent scrolling */
         }
 
         h1 {
@@ -40,25 +42,33 @@
         }
 
         #message {
-            margin-top: 30px;
-            font-size: 2em; /* Increased message size */
             display: none; /* Initially hidden */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em; /* Large message size */
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
     <h1>Order Your Meal</h1>
-    <div class="choice-box" onclick="placeOrder('Veggie Burger')">Veggie Burger</div>
-    <div class="choice-box" onclick="placeOrder('Filet-O-Fish')">Filet-O-Fish</div>
+    <div id="choices">
+        <div class="choice-box" onclick="placeOrder('Veggie Burger')">Veggie Burger</div>
+        <div class="choice-box" onclick="placeOrder('Filet-O-Fish')">Filet-O-Fish</div>
+    </div>
 
     <div id="message"></div>
 
     <script>
         function placeOrder(meal) {
+            const choices = document.getElementById('choices');
             const message = document.getElementById('message');
+            choices.style.display = 'none'; // Hide choice boxes
             message.innerText = `Your order of ${meal} is on the way!`;
-            message.style.display = 'block';
+            message.style.display = 'block'; // Show message
         }
     </script>
 
