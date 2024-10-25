@@ -6,7 +6,7 @@
     <title>Order Your Meal</title>
     <style>
         body {
-            background-image: url('mcdonald.jpg');
+            background-image: url('your-image-url.jpg'); /* Replace with your image URL */
             background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
@@ -14,15 +14,24 @@
             padding: 50px;
         }
 
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+
         .choice-box {
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.7);
             border: 2px solid white;
             border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
+            padding: 40px;
+            margin: 20px;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-size: 2em; /* Increased text size */
+            width: 250px; /* Fixed width */
+            height: 150px; /* Fixed height */
+            line-height: 150px; /* Center text vertically */
         }
 
         .choice-box:hover {
@@ -31,8 +40,8 @@
         }
 
         #message {
-            margin-top: 20px;
-            font-size: 1.5em;
+            margin-top: 30px;
+            font-size: 2em; /* Increased message size */
             display: none; /* Initially hidden */
         }
     </style>
